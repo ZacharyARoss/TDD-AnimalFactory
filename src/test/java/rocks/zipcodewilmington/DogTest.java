@@ -36,13 +36,13 @@ public class DogTest {
 
     @Test
     public void newNameTest() {
-        String givenName = "Doge";
+        String expected = "Doge";
 
-        Dog dog = new Dog(givenName, null, null);
+        Dog lab = new Dog("Doge", null, null);
 
-        String retrievedName = dog.getName();
+        String actual = lab.getName();
 
-        Assert.assertEquals(givenName, retrievedName);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
@@ -61,9 +61,9 @@ public class DogTest {
     public void getIDTest() {
         Integer givenId = 0;
 
-        Dog cat = new Dog(null, null, givenId);
+        Dog dog = new Dog(null, null, givenId);
 
-        Integer retrievedId = cat.getId();
+        Integer retrievedId = dog.getId();
 
         Assert.assertEquals(givenId, retrievedId);
     }
@@ -73,18 +73,21 @@ public class DogTest {
         Dog dog = new Dog(null, null, null);
 
         Food puppyChow = new Food();
+        dog.eat(puppyChow);
 
-        eatFood();
+        int expected = dog.getNumberOfMealsEaten();
 
-        //Assert.assertEquals();
+
+
+        Assert.assertEquals(expected,1);
     }
 
     @Test
     public void speak() {
         Dog dog = new Dog(null, null, null);
-        speak();
+        String actual = dog.speak();
 
-        Assert.assertEquals("bark!","bark!");
+        Assert.assertEquals("bark!",actual);
     }
 
     @Test
