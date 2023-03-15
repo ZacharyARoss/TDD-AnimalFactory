@@ -2,7 +2,12 @@ package rocks.zipcodewilmington;
 
 import org.junit.Assert;
 import org.junit.Test;
+import rocks.zipcodewilmington.animals.Animal;
+import rocks.zipcodewilmington.animals.Cat;
 import rocks.zipcodewilmington.animals.Dog;
+import rocks.zipcodewilmington.animals.Mammal;
+
+import java.util.Date;
 
 /**
  * @author leon on 4/19/18.
@@ -27,5 +32,74 @@ public class DogTest {
         // Then (we expect to get the given name from the dog)
         String dogName = dog.getName();
         Assert.assertEquals(dogName, givenName);
+    }
+
+    @Test
+    public void newNameTest() {
+        String givenName = "Doge";
+
+        Dog dog = new Dog(givenName, null, null);
+
+        String retrievedName = dog.getName();
+
+        Assert.assertEquals(givenName, retrievedName);
+    }
+
+    @Test
+    public void setBirthDate() {
+        Date givenBirthDate = new Date(1 / 20 / 20);
+
+        Dog dog = new Dog(null, givenBirthDate, null);
+
+        Date retrievedBirthDate = dog.getBirthDate();
+
+        Assert.assertEquals(givenBirthDate, retrievedBirthDate);
+
+    }
+
+    @Test
+    public void getIDTest() {
+        Integer givenId = 0;
+
+        Dog cat = new Dog(null, null, givenId);
+
+        Integer retrievedId = cat.getId();
+
+        Assert.assertEquals(givenId, retrievedId);
+    }
+
+    @Test
+    public void eatFood() {
+        Dog dog = new Dog(null, null, null);
+
+        Food puppyChow = new Food();
+
+        eatFood();
+
+        //Assert.assertEquals();
+    }
+
+    @Test
+    public void speak() {
+        Dog dog = new Dog(null, null, null);
+        speak();
+
+        Assert.assertEquals("bark!","bark!");
+    }
+
+    @Test
+    public void isAnimal() {
+        Animal dog = new Dog(null, null, null);
+
+        Assert.assertTrue(dog instanceof Animal);
+
+
+    }
+
+    @Test
+    public void isMammal() {
+        Dog dog = new Dog(null, null, null);
+
+        Assert.assertTrue(dog instanceof Mammal);
     }
 }
