@@ -43,24 +43,24 @@ public class CatTest {
     }
     @Test
     public void setNameTest() {
-        String givenName = "Kitty";
+        String expected = "Kitty";
 
 
-        Cat cat = new Cat(givenName, null, null);
+        Cat cat = new Cat(expected, null, null);
 
-        String retrievedName = cat.getName();
+        String actual   = cat.getName();
 
-        Assert.assertEquals(givenName, retrievedName);
+        Assert.assertEquals(expected, actual);
     }
     @Test
     public void setBirthDate(){
-        Date givenBirthDate  = new Date(1/2/20);
+        Date expected  = new Date(1/2/20);
 
-        Cat cat = new Cat(null, givenBirthDate, null);
+        Cat cat = new Cat(null, expected, null);
 
-        Date retrievedBirthDate = cat.getBirthDate();
+        Date actual = cat.getBirthDate();
 
-        Assert.assertEquals(givenBirthDate, retrievedBirthDate);
+        Assert.assertEquals(expected, actual);
 
     }
     @Test
@@ -76,15 +76,20 @@ public class CatTest {
     @Test
     public void eatFood(){
         Cat cat = new Cat(null, null, null);
-        eatFood();
+        Food catNip = new Food();
+        cat.eat(catNip);
+
+        int expected = cat.getNumberOfMealsEaten();
+
+        Assert.assertEquals(expected,1);
     }
 
     @Test
     public void speak(){
         Cat cat = new Cat(null, null, null);
-       speak();
+       String actual = cat.speak();
 
-        Assert.assertEquals("bark!","bark!");
+        Assert.assertEquals("meow!",actual);
     }
 
     @Test
